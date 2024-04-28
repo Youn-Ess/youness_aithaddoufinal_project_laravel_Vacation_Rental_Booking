@@ -14,6 +14,10 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                lato_bold: ['lato-bold'],
+                lato_regural: ['lato-regural'],
+                lato_thin: ['lato-thin'],
+                lato_light: ['lato-light'],
             },
             colors: {
                 "primary-color": "var(--primary-color)",

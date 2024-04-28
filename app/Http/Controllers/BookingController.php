@@ -51,7 +51,7 @@ class BookingController extends Controller
             'check_out_date' => $request->check_out_date,
         ]);
 
-        return back()->with('success', 'success');
+        return back()->with('success', 'events stored from admin');
     }
 
     /**

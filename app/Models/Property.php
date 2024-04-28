@@ -15,7 +15,7 @@ class Property extends Model
         'propertyType',
         'propertyDescription',
         'rooms',
-        'price',
+        'price', 
         'location',
         'latitude',
         'longitude',

@@ -11,12 +11,13 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script> --}}
 </head>
 
 <body class="">
     <div class="">
         @include('layouts.flash')
-        <nav class="fixed top-0 left-0 right-0 z-20">
+        <nav class="fixed top-0 left-0 right-0 z-50">
             @include('layouts.navbar')
         </nav>
         <!-- Page Content -->

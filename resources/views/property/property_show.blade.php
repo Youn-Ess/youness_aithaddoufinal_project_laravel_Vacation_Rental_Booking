@@ -1,13 +1,13 @@
 <x-app-layout>
     <div class="flex justify-between p-5">
-        <div class="w-[55%]">
-            <img class="rounded-lg" src="{{ asset('storage/' . $property->propertyImages[0]->image_path) }}"
-                alt="">
-            <div class="w-[100%] flex flex-wrap justify-between gap-3 mt-2">
-                @foreach ($property->propertyImages as $propertyImage)
-                    <img class="w-[22%] rounded-lg" src="{{ asset('storage/' . $propertyImage->image_path) }}"
-                        alt="">
-                @endforeach
+        <div class="w-[55vw] h-[70vh]">
+            <img class="rounded-lg h-[80%] w-[100%]"
+                src="{{ asset('storage/' . $property->propertyImages[0]->image_path) }}" alt="">
+            <div class="w-[100%] grid grid-cols-4 gap-3 mt-3">
+                @for ($i = 1; $i < count($property->propertyImages); $i++)
+                    <img class="rounded-lg h-[20vh]"
+                        src="{{ asset('storage/' . $property->propertyImages[$i]->image_path) }}" alt="">
+                @endfor
             </div>
         </div>
         <div class="w-[40%] flex flex-col gap-3 py-4">

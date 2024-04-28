@@ -1,8 +1,9 @@
 <x-app-layout>
+
     <div class="flex justify-between">
 
-        <div class="fixed top-0 left-0 right-0 mt-[10vh] w-[30%]">
-            <form method="get" class="bg-gray-200 flex flex-col gap-3 p-4 max-h-[100vh]">
+        <div class="fixed top-0 left-0 right-0 bg-gray-100 w-[25%] h-[100vh]">
+            <form method="get" class="flex flex-col gap-3 px-4 pt-[35%] max-h-[100vh]">
                 <div>
                     <h4>Explore</h4>
                     <div class="flex flex-col gap-3">
@@ -11,15 +12,17 @@
                             <input value="{{ Request::input('name') }}" name="name" class="border-gray-300 rounded-md"
                                 type="text" placeholder="name">
                         </div>
-                        <div class="flex flex-col gap-1">
-                            <label for="">min Budget per hour</label>
-                            <input value="{{ Request::input('minBudget') }}" name="minBudget"
-                                class="border-gray-300 rounded-md" type="number" placeholder="budget">
-                        </div>
-                        <div class="flex flex-col gap-1">
-                            <label for="">max Budget per hour</label>
-                            <input value="{{ Request::input('maxBudget') }}" name="maxBudget"
-                                class="border-gray-300 rounded-md" type="number" placeholder="budget">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex flex-col gap-1">
+                                <label for="">min Budget per hour</label>
+                                <input value="{{ Request::input('minBudget') }}" name="minBudget"
+                                    class="border-gray-300 rounded-md" type="number" placeholder="budget">
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <label for="">max Budget per hour</label>
+                                <input value="{{ Request::input('maxBudget') }}" name="maxBudget"
+                                    class="border-gray-300 rounded-md" type="number" placeholder="budget">
+                            </div>
                         </div>
                         <div class="flex flex-col gap-1">
                             <label for="">Location</label>
@@ -53,15 +56,15 @@
             </form>
         </div>
 
-        <div class="py-4 px-5 w-[70%] ms-[30%]">
+        <div class="py-4 px-5 w-[75%] ms-[25%]">
             <div class="flex flex-col justify-center items-start gap-3 mb-4 ">
                 <div>
                     <p class="m-0 text-gray-600 font-bold">Showing {{ count($properties) }} results</p>
                 </div>
             </div>
-            <div class="flex flex-wrap gap-4">
+            <div class="grid grid-cols-3 gap-3">
                 @foreach ($properties as $property)
-                    <div class="rounded-xl border shadow-md px-2">
+                    <div class="rounded-xl border shadow-md px-1">
                         @include('property.components.property_carousel')
                         <div class="px-2 py-3 flex justify-between items-center">
                             <div>

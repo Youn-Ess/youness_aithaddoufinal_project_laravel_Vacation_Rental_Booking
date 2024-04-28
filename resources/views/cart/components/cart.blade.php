@@ -13,14 +13,14 @@
                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Vacation Rentals</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            @if (count($events) != 0)
+            @if (count($userCartProperties) != 0)
                 <div class="modal-body">
                     <div class="flex justify-between">
                         <h5>Properties:</h5>
                         <p>Cost:</p>
                     </div>
                     <div class="flex flex-col gap-3">
-                        @foreach ($events as $event)
+                        @foreach ($userCartProperties as $event)
                             <div class="flex justify-between border-t-2 p-2">
                                 <div class="flex gap-2">
                                     <img class="w-[35%] rounded-lg"

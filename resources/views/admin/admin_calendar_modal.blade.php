@@ -1,7 +1,7 @@
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary d-none" id="calendarModal" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<button type="button" class="btn btn-primary d-none" id="admin_calendar_modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Launch static backdrop modal
 </button>
 
@@ -15,7 +15,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('calendar.store') }}" method="post"
+                <form action="{{ route('admin.store_calendar') }}" method="post"
                     class="bg-white  flex flex-col gap-3 p-4 rounded-lg">
                     @csrf
                     <div class="flex flex-col gap-3">
@@ -34,6 +34,8 @@
                             <input class="border-gray-300 rounded-md" id="pricePerHour" value="{{ $property->price }}"
                                 type="number" readonly>
                         </div>
+                        <input type="number" id="user_id" name="user_id" value="{{ $property->id }}"
+                            class="d-none" readonly>
                         <input type="number" id="property_id" name="property_id" value="{{ $property->id }}"
                             class="d-none" readonly>
                         <div class="flex flex-col gap-1">

@@ -81,6 +81,11 @@ class PropertyController extends Controller
 
         $property_id = $property->id;
 
+        return redirect()->route('properties.createImage', ['property_id' => $property_id]);
+    }
+
+    public function createImage(string $property_id)
+    {
         return view('property.property_create_images', compact('property_id'));
     }
 
@@ -89,9 +94,10 @@ class PropertyController extends Controller
     {
         request()->validate([
             'property_id' => 'required',
-            'images' => 'required|array|min:1',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images' => 'required|array|min:1|max:5', // New validation rule
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {

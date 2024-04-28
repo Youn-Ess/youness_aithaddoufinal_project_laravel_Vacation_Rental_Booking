@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'lato-bold';
+    src: url("../fonts/Lato-Bold.ttf");
+}
+@font-face {
+    font-family: 'lato-regural';
+    src: url("../fonts/Lato-Regular.ttf");
+}
+@font-face {
+    font-family: 'lato-thin';
+    src: url("../fonts/Lato-Thin.ttf");
+}
+@font-face {
+    font-family: 'lato-light';
+    src: url("../fonts/Lato-Light.ttf");
+}
+
 :root {
     --primary-color: #1E1E1E;
     --secondary-color: #FFB000;

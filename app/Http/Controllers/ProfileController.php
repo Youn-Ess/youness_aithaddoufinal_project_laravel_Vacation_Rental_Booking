@@ -77,11 +77,25 @@ class ProfileController extends Controller
 
     // ^ add my functions for the profile
 
-    public function index()
+    public function index(Request $request)
     {
-        $events = Booking::all()->where('user_id', '==', Auth::user()->id);
-        $totalPrice = $events->sum('total_price');
-        return view('profile.profile_index', compact('events', 'totalPrice'));
+        $properties = Property::query();
+
+        $properties->where('user_id', '=', auth()->user()->id);
+
+        $searchResult = $request->input('searchResult');
+        if (!empty($searchResult)) {
+            $properties->where('propertyTitle', 'like', "%{$searchResult}%");
+        }
+
+        $authUserProperties = $properties->get();
+
+
+        $userCartProperties = Booking::where('user_id', auth()->user()->id)->get();
+
+        $totalPrice = $userCartProperties->sum('total_price');
+
+        return view('profile.profile_index', compact('authUserProperties', 'totalPrice', 'userCartProperties'));
     }
 
     public function show()

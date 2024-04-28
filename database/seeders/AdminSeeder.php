@@ -17,7 +17,7 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         //
-        User::insert([
+        $user = User::create([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin'),
@@ -28,5 +28,7 @@ class AdminSeeder extends Seeder
             // 'double_auth_expires_at' => 'chi7aja',
             // 'email_verified_at' => 'chi7aja',
         ]);
+
+        $user->assignRole('admin');
     }
 }

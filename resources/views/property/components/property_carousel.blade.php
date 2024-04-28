@@ -1,36 +1,25 @@
+<!-- component -->
 <!-- This is an example component -->
 <div class="max-w-2xl mx-auto">
 
     <div id="default-carousel" class="relative" data-carousel="static">
         <!-- Carousel wrapper -->
-        <div class="overflow-hidden relative border-b w-[29vw] rounded-lg sm:h-64 xl:h-80 2xl:h-96">
-            @foreach ($property->propertyImages as $img)
-                <!-- Item 1 -->
+        <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-60">
+            @foreach ($property->propertyImages as $image)
+                <!-- Item 2 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img class="rounded-xl block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
-                        src="{{ asset('storage/' . $img->image_path) }}" alt="">
+                    <img class="h-[100%] w-[100%]" src="{{ asset('storage/' . $image->image_path) }}"
+                        class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
                 </div>
             @endforeach
-            {{-- <!-- Item 2 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-                    class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
-            </div>
-            <!-- Item 3 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
-                    class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
-            </div> --}}
         </div>
         <!-- Slider indicators -->
-        {{-- <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-            <button type="button" class="w-3 h-3 rounded-full bg-black" aria-current="false" aria-label="Slide 1"
-                data-carousel-slide-to="0"></button>
-            <button type="button" class="w-3 h-3 rounded-full bg-black" aria-current="false" aria-label="Slide 2"
-                data-carousel-slide-to="1"></button>
-            <button type="button" class="w-3 h-3 rounded-full bg-black" aria-current="false" aria-label="Slide 3"
-                data-carousel-slide-to="2"></button>
-        </div> --}}
+        <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
+            @for ($i = 0; $i < count($property->propertyImages); $i++)
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false"
+                    aria-label="Slide {{ $i + 1 }}" data-carousel-slide-to="{{ $i }}"></button>
+            @endfor
+        </div>
         <!-- Slider controls -->
         <button type="button"
             class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
@@ -58,11 +47,5 @@
         </button>
     </div>
 
-    {{-- <p class="mt-5">This carousel slider component is part of a larger, open-source library of Tailwind CSS
-        components. Learn
-        more
-        by going to the official <a class="text-blue-600 hover:underline"
-            href="https://flowbite.com/docs/getting-started/introduction/" target="_blank">Flowbite Documentation</a>.
-    </p> --}}
     <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
 </div>

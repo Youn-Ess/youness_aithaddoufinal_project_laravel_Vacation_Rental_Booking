@@ -16,9 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        $this->call([
-            AdminSeeder::class,
-        ]);
 
         DB::table('roles')->insert([
             [
@@ -29,6 +26,14 @@ class DatabaseSeeder extends Seeder
                 "name" => 'owner',
                 'guard_name' => 'web'
             ],
+            [
+                "name" => 'admin',
+                'guard_name' => 'web'
+            ],
+        ]);
+
+        $this->call([
+            AdminSeeder::class,
         ]);
 
         // User::factory()->create([
