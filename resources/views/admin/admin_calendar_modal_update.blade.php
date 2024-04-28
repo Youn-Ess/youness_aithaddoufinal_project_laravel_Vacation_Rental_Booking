@@ -1,5 +1,6 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary d-none" id="admin_update_modal" data-bs-toggle="modal" data-bs-target="#1admin_update_modal">
+<button type="button" class="btn btn-primary d-none" id="admin_update_modal" data-bs-toggle="modal"
+    data-bs-target="#1admin_update_modal">
 
 </button>
 
@@ -36,13 +37,13 @@
                             class="bg-blue-600 px-[1rem] py-[0.4rem] rounded-2xl text-white">update</button>
                     </div>
                 </form>
-                {{-- <form action="{{ route('calendar.delete') }}" method="post">
+                <form action="{{ route('admin.destroy_calendar') }}" method="post">
                     @csrf
                     @method('DELETE')
                     <input type="hidden" name="eventId2" id="eventId2">
                     <button type="submit"
                         class="bg-myPrimary px-[1rem] py-[0.4rem] rounded-2xl text-white">delete</button>
-                </form> --}}
+                </form>
             </div>
         </div>
     </div>

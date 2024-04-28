@@ -71,9 +71,10 @@ Route::delete('admin/destroyUser/{user}', [AdminController::class, 'destroyUser'
 Route::get('admin/properties_index/{id}', [AdminController::class, 'properties_index'])->name('admin.properties_index');
 Route::get('admin/properties_edit/{property}', [AdminController::class, 'properties_edit'])->name('admin.properties_edit');
 Route::put('admin/properties_update/{property}', [AdminController::class, 'properties_update'])->name('admin.properties_update');
+Route::delete('admin/properties_destroy/{property}', [AdminController::class, 'properties_destroy'])->name('admin.properties_destroy');
 Route::get('admin/calendar_show/{property}', [AdminController::class, 'calendar_show'])->name('admin.calendar_show');
-Route::post('admin/store_calendar', [AdminController::class, 'store_calendar'])->name('admin.store_calendar');
 Route::put('admin/update_calendar', [AdminController::class, 'update_calendar'])->name('admin.update_calendar');
+Route::delete('admin/delete_calendar', [AdminController::class, 'destroy_calendar'])->name('admin.destroy_calendar');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

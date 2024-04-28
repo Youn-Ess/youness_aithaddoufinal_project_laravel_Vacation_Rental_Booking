@@ -9,18 +9,19 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li>
-                                {{-- <form action="{{ route('admin.properties_destroy', $property) }}" method="post">
+                                <form action="{{ route('admin.properties_destroy', $property) }}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger w-full">delete</button>
-                                </form> --}}
+                                </form>
                             </li>
                             <li class="mt-1">
                                 <a href="{{ route('admin.properties_edit', $property) }}"
                                     class="btn btn-primary w-full">edit</a>
                             </li>
                             <li class="mt-1">
-                                <a href="{{ route('admin.calendar_show', $property) }}" class="btn btn-primary w-full">view
+                                <a href="{{ route('admin.calendar_show', $property) }}"
+                                    class="btn btn-primary w-full">view
                                     callendar</a>
                             </li>
                         </ul>

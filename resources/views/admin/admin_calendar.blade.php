@@ -2,7 +2,6 @@
 
     <div class="bg-gray-100  h-[89vh] flex flex-col-reverse gap-y-9 items-center justify-center ">
         <div class="w-[60%] bg-white  rounded-3xl border-none p-3 h-[65vh]" id="calendar"></div>
-        @include('admin.admin_calendar_modal')
         @include('admin.admin_calendar_modal_update')
     </div>
 
@@ -46,7 +45,7 @@
 
                 initialView: "timeGridWeek",
                 nowIndicator: true,
-                selectable: true,
+                selectable: false,
                 selectMirror: true,
                 selectOverlap: false,
                 weekends: true,
@@ -67,31 +66,7 @@
                     return info.start > instant
                 },
 
-                select: (info) => {
-                    let start = info.start
-                    let end = info.end
 
-                    document.getElementById('check_in_date').value = formatDate(start)
-
-
-                    document.getElementById('check_out_date').value = formatDate(end)
-                    let date = new Date();
-                    date.setHours(date.getHours() + 1)
-                    date = formatDate(date)
-
-
-                    document.getElementById('check_in_date').min = date
-                    let milliseconds = end - start
-                    let hours = milliseconds / 60 / 60 / 1000
-
-                    document.getElementById('totalHours').value = hours
-                    let price = document.getElementById('pricePerHour').value
-
-                    document.getElementById('totalPrice').value = hours * +price
-
-                    document.getElementById('admin_calendar_modal').click()
-
-                },
 
                 eventClick: (info) => {
                     let id = info.event.id
@@ -104,6 +79,8 @@
                     const inputId = document.getElementById('eventId')
                     const inputId2 = document.getElementById('eventId2')
                     inputId.value = id
+                    inputId2.value = id
+
                     document.getElementById('admin_update_modal').click()
                 },
             });

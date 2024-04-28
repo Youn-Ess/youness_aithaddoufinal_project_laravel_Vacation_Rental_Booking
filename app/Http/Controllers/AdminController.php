@@ -87,6 +87,12 @@ class AdminController extends Controller
         return redirect()->route('admin.index')->with('success', 'property updated successfully');
     }
 
+    public function properties_destroy(Property $property)
+    {
+        $property->delete();
+        return redirect()->route('admin.index')->with('success', 'property deleted successfully');
+    }
+
     public function calendar_show(Property $property)
     {
         $events = Booking::where('property_id',  $property->id)->get();
@@ -94,7 +100,6 @@ class AdminController extends Controller
         $events = $events->map(function ($event) {
             return [
                 'id' => $event->id,
-                'user_id' => $event->user_id,
                 // !hadi wahed l3ayba jdida
                 // ...$event->toArray(),
                 'start' => $event->check_id_date,
@@ -112,27 +117,6 @@ class AdminController extends Controller
     }
 
 
-    public function store_calendar(Request $request)
-    {
-        request()->validate([
-            'property_id' => 'required',
-            'total_price' => 'required',
-            'total_hours' => 'required',
-            'check_out_date' => 'required',
-            'check_id_date' => 'required',
-        ]);
-
-        $book = Booking::create([
-            'user_id' => Auth::user()->id,
-            'property_id' => $request->property_id,
-            'total_price' => $request->total_price,
-            'total_hours' => $request->total_hours,
-            'check_id_date' => $request->check_id_date,
-            'check_out_date' => $request->check_out_date,
-        ]);
-
-        return back()->with('success', 'events stored from admin');
-    }
     public function update_calendar(Request $request)
     {
         $events = Booking::all();
@@ -149,5 +133,12 @@ class AdminController extends Controller
         $event->save();
 
         return back()->with('success', 'event updated from admin');
+    }
+
+    public function destroy_calendar(Request $request)
+    {
+        $event = Booking::where('id', $request->eventId2)->first();
+        $event->delete();
+        return back()->with('success', 'event deleted from admin');
     }
 }
