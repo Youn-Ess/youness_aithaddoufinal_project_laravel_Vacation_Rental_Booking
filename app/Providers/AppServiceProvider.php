@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
 
 
         Gate::define('auth_user_can_rent', function (User $user, $id) {
-            return ($user->id != $id && !$user->hasRole("owner")) ? Response::allow() : Response::deny("you can't rent your own property");
+            return ($user->id != $id) ? Response::allow() : Response::deny("you can't rent your own property");
         });
     }
 }

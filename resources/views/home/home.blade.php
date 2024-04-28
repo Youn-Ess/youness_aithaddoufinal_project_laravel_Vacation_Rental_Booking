@@ -4,21 +4,21 @@
             style="background-image: url({{ asset('images/heroSectionImg.jpg') }}); background-size: cover;">
             <div class="backdrop-blur-[2px] bg-black/10 absolute inset-0 w-[60%] "></div>
             <div class="absolute inset-0">
-                <div class="text-white ps-[10vw] pt-[15vh] w-[45%]">
-                    <h1 class="font-lato_regural text-[3.5rem]">List and showcase your vacation rentals</h1>
-                    <p class="text-[1.3rem] font-lato_light">Explore vacation rentals worldwide</p>
-                    <div class="flex lg:flex-row gap-4 mt-5">
+                <div class="text-white ps-[10vw] pt-[15vh] lg:w-[45%] w-[55%]">
+                    <h1 class="font-lato_regural lg:text-[3.5rem]">List and showcase your vacation rentals</h1>
+                    <p class="lg:text-[1.3rem] text-[0.9rem] font-lato_light">Explore vacation rentals worldwide</p>
+                    <div class="flex lg:flex-row lg:gap-4 gap-2 mt-5">
 
                         <a href="{{ route('properties.index') }}"
-                            class="bg-red-500 w-fit text-white px-4 py-2 rounded-full transition duration-200 ease-in-out hover:bg-red-700 active:bg-red-900 focus:outline-none no-underline font-lato_light">Search</a>
+                            class="bg-red-500 w-fit text-white px-[1rem] py-[0.4rem] rounded-full transition duration-200 ease-in-out hover:bg-red-700 active:bg-red-900 focus:outline-none no-underline font-lato_light lg:text-[1rem] text-[0.9rem]">Search</a>
 
                         @role('owner')
-                            <a class="border px-[1rem] py-[0.4rem] rounded-full no-underline text-white font-lato_light"
+                            <a class="border px-[1rem]  py-[0.4rem] rounded-full no-underline text-white font-lato_light lg:text-[1rem] text-[0.8rem]"
                                 href="{{ route('properties.create') }}">List Property</a>
                         @endrole
                     </div>
 
-                    <div class="flex gap-[3rem] pt-5">
+                    <div class="flex lg:gap-[3rem] gap-3 pt-5">
                         <div>
                             <p class="text-[3rem] m-0 font-lato_bold">{{ count($properties) }}</p>
                             <p class="font-light">Listing</p>
@@ -43,11 +43,11 @@
     </section> --}}
 
     <section>
-        <div class="flex py-[4rem] gap-[1rem] px-[13rem]">
-            <div class="w-[50%]">
-                <img class="w-[25vw] rounded-lg" src="{{ asset('images/lastSectionImage.jpg') }}" alt="">
+        <div class="flex flex-lg-row flex-col py-[4rem] gap-[1rem] lg:px-[13rem] px-[1.5rem]">
+            <div class="lg:w-[50%] w-[100%]">
+                <img class="lg:w-[25vw] w-[100%] rounded-lg" src="{{ asset('images/lastSectionImage.jpg') }}" alt="">
             </div>
-            <div class="w-[50%] flex flex-col justify-between pb-[4rem]">
+            <div class="lg:w-[50%] w-[100%] flex flex-col justify-between pb-[4rem]">
                 <h1 class="text-[1.8rem] font-lato_regural">
                     Find your perfect vacation rental
                     with detailed descriptions and
