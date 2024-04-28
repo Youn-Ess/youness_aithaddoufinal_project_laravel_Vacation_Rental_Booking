@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
-use Illuminate\Support\Facades\Gate as FacadesGate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -29,8 +29,8 @@ class AppServiceProvider extends ServiceProvider
         });
 
 
-        // FacadesGate::define('auth_user_can_rent', function (User $user, $id) {
-        //     return $user->id != $id ? Response::allow() : Response::deny("you can't rent your own property");
-        // });
+        Gate::define('auth_user_can_rent', function (User $user, $id) {
+            return ($user->id != $id && !$user->hasRole("owner")) ? Response::allow() : Response::deny("you can't rent your own property");
+        });
     }
 }

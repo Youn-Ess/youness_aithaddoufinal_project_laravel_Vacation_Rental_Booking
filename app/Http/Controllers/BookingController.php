@@ -60,7 +60,7 @@ class BookingController extends Controller
     public function show(Property $property)
     {
 
-        // Gate::authorize('auth_user_can_rent', $property->user->id);
+        Gate::authorize('auth_user_can_rent', $property->user->id);
 
         $events = Booking::where('property_id',  $property->id)->get();
 
